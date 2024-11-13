@@ -11,10 +11,7 @@ logger = logging.getLogger(__name__)
 
 @app.get("/")
 def read_root():
-    return {"Hello": "Woraaaaaald"}
-
-
-# aaa
+    return {"Hello": "World"}
 
 
 @app.get("/test")
