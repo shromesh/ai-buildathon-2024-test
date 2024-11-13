@@ -11,7 +11,7 @@ router = APIRouter(tags=["test"])
 
 @router.get("/")
 def read_root():
-    return {"Hello": "Wor"}
+    return {"Hello": "World"}
 
 
 @router.get("/test")
