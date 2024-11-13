@@ -11,7 +11,10 @@ logger = logging.getLogger(__name__)
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "Woraaaaaald"}
+
+
+# aaa
 
 
 @app.get("/test")
@@ -24,10 +27,3 @@ async def post_test(request: Request):
     json_body = await request.json()
     logger.info(f"Received JSON body: {json_body}")
     return {"message": "Body logged"}
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    port = int(os.getenv("PORT", 8080))
-    uvicorn.run(app, host="0.0.0.0", port=port)
