@@ -1,26 +1,19 @@
-import logging
-import os
-
-from fastapi import FastAPI, Request
+from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from routers import (
+    test,
+)  # pwdをappにするならこれでいい。そうでないなら相対パスにする
 
 app = FastAPI()
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+origins = ["*"]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/test")
-def read_test():
-    return {"Hello": "Test"}
-
-
-@app.post("/test_post")
-async def post_test(request: Request):
-    json_body = await request.json()
-    logger.info(f"Received JSON body: {json_body}")
-    return {"message": "Body logged"}
+app.include_router(test.router)
