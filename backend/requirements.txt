@@ -2,3 +2,6 @@ fastapi
 uvicorn
 google-cloud-aiplatform[evaluation]
 google-cloud-discoveryengine
+pandas
+plotly
+IPython
