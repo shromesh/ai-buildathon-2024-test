@@ -16,7 +16,7 @@ import plotly.graph_objects as go
 from vertexai.evaluation import EvalTask, MetricPromptTemplateExamples, PointwiseMetric
 
 # prompt
-from question_answering_correctness_prompt_template import (
+from routers.question_answering_correctness_prompt_template import (
     question_answering_correctness_prompt_template,
 )
 
@@ -24,9 +24,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 router = APIRouter(tags=["test"])
-PROJECT_ID = "ai-buildathon-test-nov9-1"  # @param {type:"string"}
-LOCATION = "us-central1"  # @param {type:"string"}
-EXPERIMENT = "rag-eval-01"  # @param {type:"string"}
+PROJECT_ID = "ai-buildathon-test-nov9-1"
+LOCATION = "us-central1"
+EXPERIMENT = "rag-eval-01"
 
 
 @router.get("/")
